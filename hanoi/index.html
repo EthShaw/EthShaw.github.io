@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html onkeypress="keyPressed();" style="width:100%;height:100%;margin:0;overflow:hidden;">
+    <head>
+        <title>Tower of Hanoi</title>
+        <style>
+            #settingsPage {
+                display: none;
+                position: fixed;
+                z-index: 1;
+                left: 0px;
+                top: 0px;
+                width: 100%;
+                height: 100%;
+                background: rgba(255, 255, 255, 0.5);
+            }
+
+            .settingsBox {
+                background-color: green;
+                /* 8% from the top and centered */
+                margin: 8% auto;
+                padding: 20px;
+                border: 1px solid #888;
+                width: 50%;
+            }
+            /* The Close Button */
+
+            .close {
+                color: #aaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+                color: #222222;
+                text-decoration: none;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+
+    <body style="width:100%;height:100%;margin:0;overflow:hidden;">
+        <svg id="mainSvgElement" height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <!-- The towers -->
+                <rect id="tower0" fill="#8C591A" x="20.5%" y="0%" width="0%" height="0%"/>
+                <rect id="tower1" fill="#8C591A" x="49.5%" y="0%" width="0%" height="0%"/>
+                <rect id="tower2" fill="#8C591A" x="78.5%" y="0%" width="0%" height="0%"/>
+            
+                <image xlink:href="gear.png" onclick="settingsGui();" onmouseover="dispSetWidget();" style="cursor:pointer;" x="96.8%" y="0.2%" width="3%" />
+                <text id="movesText" x="1" y="20" font-size="20">Moves so far: </text>
+                <text id="movesLeft" x="1" y="40" font-size="20">Moves left: </text>
+        </svg>
+
+        <div id="settingsPage">
+            <div class="settingsBox">
+                <span class="close" onclick="closeSettings(0);">&times;</span>
+                <p>Warning: Rings will reset if you save </p>
+                <p>Display Settings:<br>
+                    Ring height: <input size="3" id="rHtTxt" onblur="checkNum(this);" onkeypress="return isNum(event, this);" type="text" />%<br>
+                    Width decrease per ring: <input size="3" id="rWdDTxt" onblur="checkNum(this);" onkeypress="return isNum(event, this);" type="text">%<br>
+                    Bottom ring width: <input size="3" id="bRWdTxt" onblur="checkNum(this);" onkeypress="return isNum(event, this);" type="text" />%<br>
+                    Tower width: <input size="3" id="tWdTxt" onblur="checkNum(this);" onkeypress="return isNum(event, this);" type="text" />%<br>
+                    Tower height: <input size="3" id="tHtTxt" onblur="checkNum(this);" onkeypress="return isNum(event, this);" type="text" />%
+                </p>
+                <p>Other Settings:<br>
+                    Ring count: <input id="rCtTxt" onkeypress="return isNum(event);" type="text"><br>
+                    Update delay (milliseconds): <input id="upDlyTxt" onkeypress="return isNum(event);" type="text">
+                </p>
+                <p>Load preset:
+                    <select id="presetSelect" onchange="presetSelect();">
+                            <option value="8">8 Ring Preset</option>
+                            <option value="16">16 Ring Preset</option>
+                            <option value="32">32 Ring Preset</option>
+                            <option value="64">64 Ring Preset</option>
+                    </select><br>
+                    <!--<button onclick="loadSelectedPreset();">Load</button>-->
+                    Eval Box: <input id="evalTxt" type="text">
+                    <button onclick="evalClick(document.getElementById('evalTxt').value);">Eval</button>
+                    <br>
+                    Jump to state: <input id="stateTxt" onblur="validState(this);" onkeypress="return isNum(event);" type="text">
+                    <button onclick="jumpToState(document.getElementById('stateTxt'));">Jump</button>
+                </p>
+                <button onclick="closeSettings(1);">Save</button>
+                <button onclick="closeSettings(0);">Cancel</button>
+            </div>
+        </div>
+
+        <script src="utils.js"></script>
+        <script src="settings.js"></script>
+        <script src="main.js"></script>
+    </body>
+</html>
