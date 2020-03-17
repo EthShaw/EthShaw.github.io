@@ -1,0 +1,61 @@
+<html>
+    <head>
+		<title>Binary Clock</title>
+        <link rel="stylesheet" type="text/css" href="style.css" />
+    </head>
+    <body>
+        <div class="draggable">
+            <svg id="clockSVG" width="300" height="180" xmlns="http://www.w3.org/2000/svg">
+                <!-- #00f is on, #fff is off -->
+                <g>
+                    <title>background</title>
+                    <rect fill="#ddd" id="canvas_background" height="402" width="582" y="-1" x="-1" />
+                    <g display="none" overflow="visible" y="0" x="0" height="100%" width="100%" id="canvasGrid">
+                        <rect fill="url(#gridpattern)" stroke-width="0" y="0" x="0" height="100%" width="100%" />
+                    </g>
+                </g>
+                <g>
+                    <g transform="translate(20,20)">
+                        <!-- meridiem -->
+                        <circle stroke="#000" r="10" id="hour_1_1" cx="0" cy="80" stroke-width="1.5" />
+                        
+                        <circle stroke="#000" r="10" id="hour_1_0" cx="0" cy="120" stroke-width="1.5" />
+                        <g transform="translate(40,0)">
+                            <circle stroke="#000" r="10" id="hour_0_3" cx="0" cy="0" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="hour_0_2" cx="0" cy="40" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="hour_0_1" cx="0" cy="80" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="hour_0_0" cx="0" cy="120" stroke-width="1.5" />
+                        </g>
+                    </g>
+                    <g transform="translate(120,20)">
+                        <circle stroke="#000" r="10" id="min_1_2" cx="0" cy="40" stroke-width="1.5" />
+                        <circle stroke="#000" r="10" id="min_1_1" cx="0" cy="80" stroke-width="1.5" />
+                        <circle stroke="#000" r="10" id="min_1_0" cx="0" cy="120" stroke-width="1.5" />
+                        <g transform="translate(40,0)">
+                            <circle stroke="#000" r="10" id="min_0_3" cx="0" cy="0" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="min_0_2" cx="0" cy="40" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="min_0_1" cx="0" cy="80" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="min_0_0" cx="0" cy="120" stroke-width="1.5" />
+                        </g>
+                    </g>
+                    <g transform="translate(220,20)">
+                        <circle stroke="#000" r="10" id="sec_1_2" cx="0" cy="40" stroke-width="1.5" />
+                        <circle stroke="#000" r="10" id="sec_1_1" cx="0" cy="80" stroke-width="1.5" />
+                        <circle stroke="#000" r="10" id="sec_1_0" cx="0" cy="120" stroke-width="1.5" />
+                        <g transform="translate(40,0)">
+                            <circle stroke="#000" r="10" id="sec_0_3" cx="0" cy="0" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="sec_0_2" cx="0" cy="40" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="sec_0_1" cx="0" cy="80" stroke-width="1.5" />
+                            <circle stroke="#000" r="10" id="sec_0_0" cx="0" cy="120" stroke-width="1.5" />
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            <p id="hours" hidden>Hello World!</p>
+            <p id="minutes" hidden>Hello World!</p>
+            <p id="seconds" hidden>Hello World!</p>
+            <p id="meridiem" hidden>AM</p>
+            <script type="text/javascript" src="clock.js"></script>
+        </div>
+    </body>
+</html>

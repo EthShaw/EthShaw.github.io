@@ -13,6 +13,10 @@
                 height: 100%;
                 background: rgba(255, 255, 255, 0.5);
             }
+			
+			.smoothTransition {
+				transition: 0.5s;
+			}
 
             .settingsBox {
                 background-color: green;
@@ -56,6 +60,7 @@
             <div class="settingsBox">
                 <span class="close" onclick="closeSettings(0);">&times;</span>
                 <p>Warning: Rings will reset if you save </p>
+				<input type="checkbox" id="shouldTransition" onclick="toggleTransition()"><label for="shouldTransition"> Enable Transitions</label>
                 <p>Display Settings:<br>
                     Ring height: <input size="3" id="rHtTxt" onblur="checkNum(this);" onkeypress="return isNum(event, this);" type="text" />%<br>
                     Width decrease per ring: <input size="3" id="rWdDTxt" onblur="checkNum(this);" onkeypress="return isNum(event, this);" type="text">%<br>

@@ -238,3 +238,15 @@ function jumpToState(input) {
     updateDraw();
 	paused = true;
 }
+
+function toggleTransition() {
+	var elems = document.getElementsByTagName("rect");
+	
+	for (var i = 0; i < elems.length; i++) {
+		if (elems[i].classList.contains('smoothTransition')) {
+			elems[i].classList.remove('smoothTransition');
+		} else {
+			elems[i].classList.add('smoothTransition');
+		}
+	}
+}

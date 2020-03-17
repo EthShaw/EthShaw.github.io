@@ -1,0 +1,8 @@
+.draggable {
+  -webkit-app-region: drag;
+  height: 100%;
+  width: 100%;
+}
+
+/* Make things that are clickable non-draggable */
+/* -webkit-app-region: no-drag; */
