@@ -1,4 +1,8 @@
 User-agent: *
 Disallow: /nosearch/
+
+# Disallow specific bingo cards to be searchable because that doesn't make sense
 Disallow: /bingo/index.html?
+Disallow: /bingo/index?
 Disallow: /bingo/?
+Disallow: /bingo?
