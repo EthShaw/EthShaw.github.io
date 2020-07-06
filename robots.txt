@@ -6,5 +6,6 @@ Disallow: /bingo/index.html?
 Disallow: /bingo/index?
 Disallow: /bingo/?
 Disallow: /bingo?
+Disallow: /bingo/print
 
 Sitemap: https://fishdog5000.github.io/bingo/sitemap.xml
