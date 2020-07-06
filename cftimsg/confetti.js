@@ -9,7 +9,7 @@
       , CONFETTI_PER_SEC = 10
       , FPS = 30;
     var cookieMode = !1
-      , large = !0
+      , large = true
       , spinImg = !1;
     class Confetto {
         constructor(t, e, o, n, i, r, a) {
@@ -169,9 +169,6 @@
         }()
     }
     ;
-    cookieMode = !0,
-    spinImg = !1,
-    large = !1;
     const updateDelay = 3e4;
     function stuff() {
         cookieMode = Math.random() > .5,
