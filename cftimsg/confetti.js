@@ -168,15 +168,5 @@
             setTimeout(t, 1e3 / FPS)
         }()
     }
-    ;
-    const updateDelay = 3e4;
-    function stuff() {
-        cookieMode = Math.random() > .5,
-        spinImg = Math.random() > .5,
-        window.colorSet = vtColors,
-        setTimeout(stuff, updateDelay)
-    }
-    ConfettiHelper.confetti(randomColors),
-    stuff();
 }
 )();
