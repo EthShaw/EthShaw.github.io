@@ -1,0 +1,44 @@
+<!--
+    This file is a modified version of the default.html in the tactile github pages theme.
+    See the original file here:
+    https://github.com/pages-themes/tactile/blob/dfd365991d467e0fbdecdc84becdd7bec532119a/_layouts/default.html
+-->
+<!DOCTYPE html>
+<html lang="{{ site.lang | default: "en-US" }}">
+  <head>
+    <meta charset='utf-8'>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
+    <link rel="stylesheet" type="text/css" href="{{ '/assets/css/print.css' | relative_url }}" media="print">
+
+    {% seo %}
+    {% include head-custom.html %}
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>{{ page.title | default: site.title | default: site.github.repository_name }}</h1>
+        {% if page.show_description %}
+          <h2>{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
+        {% endif %}
+          <hr>
+        </header>
+        <section id="main_content">
+          {{ content }}
+        </section>
+
+        <footer>
+        {% if site.github.is_project_page %}
+          {{ site.title | default: site.github.repository_name }} is maintained by <a href="{{ site.github.owner_url }}">{{ site.github.owner_name }}</a><br>
+        {% endif %}
+          I generated this site with <a href="https://pages.github.com">GitHub Pages</a>.
+        </footer>
+
+      </div>
+    </div>
+  </body>
+</html>

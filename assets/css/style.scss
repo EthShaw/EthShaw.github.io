@@ -1,0 +1,9 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+// Make the page wider so it looks nicer
+.inner {
+    width: 73vw;
+}
