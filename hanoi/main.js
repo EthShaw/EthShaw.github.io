@@ -1,4 +1,4 @@
-// This code was written in 2016
+// This code was written in 2016 (and not modified significantly since then)
 var left, total;
 
 function setLeft() {
@@ -54,7 +54,7 @@ function getTower(ringID) {
     return 2;
 }
 
-// Returns the next ring above ringID on the 
+// Returns the next ring above ringID on the
 // specified tower, or -1 if ringID is on top.
 function checkAbove(tower, ringID) {
     for (var i = ringID + 1; i < ringDat.size; i++) {
@@ -181,6 +181,29 @@ function update() {
 }
 
 function setup() {
+    // If hash string is specified as #time, use a "time" preset so I don't have to set
+    // it through the menu to demonstrate. Except for this small part and the paired if
+    // at the end, I wrote most of this code in 9th grade, so it does not follow the
+    // best programming conventions and is not well commented.
+    if (window.location.hash == "#time") {
+        ringDat = {
+            // The total number of rings
+            size: 31,
+            // Delay before next update
+            delay: 1000,
+            // Ring Height, default: 5
+            h: 2.8, //3,
+            // Ring width decrease amount, default: 4
+            widDec: 0.8, //1.6,
+            // The width of the bottom ring, default: 30
+            startWidth: 30,
+            // The width of the towers, default: 1
+            towerW: 0.5,
+            // The height of the towers, default: 75
+            towerH: 90
+        };
+    }
+
     instructions.push([reset]);
     var colors = [0xFF0000, 0x00FF00, 0x0000FF, 0x900090, 0xFFFF00, 0x00FFFF, 0xFF4500];
     if (Math.random() > 0.4) {
@@ -216,6 +239,18 @@ function setup() {
         }
         rect.style.fill = "#" + colorStr;
         svgElem.appendChild(rect);
+    }
+
+    if (window.location.hash == "#time") {
+        // Jump to the current time in UTC. There are undoubtedly many ways to
+        // improve this code, but since I did not want to touch my code too much
+        // from the way it was originally written, we pass in the value like this
+        // (jumpToState expects to receive an HTML Input element, but it only
+        // cares about its "value" property).
+        jumpToState({
+            value: Math.floor(Date.now() / 1000).toString()
+        });
+        paused = false;
     }
 }
 
