@@ -248,7 +248,7 @@ function setup() {
         // (jumpToState expects to receive an HTML Input element, but it only
         // cares about its "value" property).
         jumpToState({
-            value: Math.floor(Date.now() / 1000).toString()
+            value: Math.min(Math.floor(Date.now() / 1000), Math.pow(2, 31) - 1).toString()
         });
         paused = false;
     }
